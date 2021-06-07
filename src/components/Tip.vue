@@ -27,26 +27,22 @@
 </template>
 
 <script>
-    import { db } from '../firebase';
+import { createTip } from '../services/tip'
 
     export default {
         data() {
             return {
                 tip: {
+                  userName: 'foobar',
+                  postUrl: 'www.foo.com',
+                  amount: 1
                 }
             }
         },
         methods: {
             onFormSubmit(event) {
                 event.preventDefault()
-                db.collection('tips').add(this.tip).then(() => {
-                    console.log("tip successfully created!");
-                    this.tip.userName = ''
-                    this.tip.postUrl = ''
-                    this.tip.amount = ''
-                }).catch((error) => {
-                    console.log(error);
-                });
+                createTip(this.tip);
             }
         }
     }
