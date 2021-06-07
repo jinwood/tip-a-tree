@@ -1,9 +1,19 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+  <div>
+    <nav
+      class="navbar navbar-dark bg-dark justify-content-between flex-nowrap flex-row"
+    >
+      <div class="container">
+        <a class="navbar-brand float-left">Tip a Tree</a>
+        <ul class="nav navbar-nav flex-row float-right">
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container mt-5">
+      <router-view></router-view>
+    </div>
   </div>
-  <router-view/>
 </template>
 
 <style lang="scss">
